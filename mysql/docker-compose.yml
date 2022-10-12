@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  mysql:
+    container_name: mysql
+    restart: always
+    image: mysql
+    working_dir: /etc/shared
+    environment:
+      MYSQL_ROOT_PASSWORD: 1
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/db:/var/lib/mysql
+      - ./conf/my.cnf:/etc/mysql/my.cnf
+      - ./shared:/etc/shared

@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  phpmyadmin:
+    container_name: phpmyadmin
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    image: phpmyadmin
+    ports:
+      - "7000:80"
+    volumes:
+        - ./data/phpmyadmin:/var/lib/phpmyadmin
+    environment:
+      - PMA_HOST=host.docker.internal
+      - PMA_PORT=3306
+

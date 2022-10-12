@@ -1,0 +1,15 @@
+---
+version: "2.1"
+services:
+  sqlitebrowser:
+    image: lscr.io/linuxserver/sqlitebrowser:latest
+    container_name: sqlitebrowser
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Tehran
+        #volumes:
+        #- /path/to/config:/config
+    ports:
+      - 3200:3000
+    restart: unless-stopped
